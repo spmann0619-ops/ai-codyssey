@@ -1,5 +1,5 @@
 # ai-codyssey
 
-'''bash
+'''md
 dddd
 '''
