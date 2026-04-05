@@ -1,1 +1,5 @@
 # ai-codyssey
+
+'''bash
+dddd
+'''
