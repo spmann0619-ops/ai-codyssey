@@ -127,3 +127,22 @@ core.precomposeunicode=true
 user.name=JH
 user.email=your@email.com
 '''
+
+## 트러블슈팅 1. Git Push가 되지 않은 문제
+
+### 문제
+README.md 파일을 수정한 뒤 git push를 실행했지만 GitHub 저장소에 변경 내용이 반영되지 않았다.
+
+### 원인 가설
+파일 내용을 수정했지만 저장하지 않아 Git이 변경 사항을 인식하지 못했을 가능성이 있다고 판단하였다.
+
+### 확인
+
+```bash
+$ git status
+nothing to commit, working tree clean
+
+###해결
+$ git add .
+$ git commit -m "README 수정"
+$ git push
