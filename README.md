@@ -113,3 +113,17 @@ $ ls -l
 
 결과: ls -l 명령어를 사용해 권한이 변경되었는지 확인하였다.
 '''
+
+#깃허브 연동 증거
+'''
+spman06195118@c4r7s7 project % git config --list
+credential.helper=osxkeychain
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+core.precomposeunicode=true
+user.name=JH
+user.email=your@email.com
+'''
