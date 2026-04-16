@@ -1,4 +1,44 @@
-# ai-codyssey
+
+# AI Codyssey - 개발 워크스테이션 구축
+
+## 1. 프로젝트 개요
+터미널, Git, Docker를 활용하여 개발 워크스테이션 환경을 구축하는 과제이다.  
+터미널 기본 조작, 파일 권한 관리, GitHub 연동, Docker 컨테이너 실행 및 검증 과정을 수행하며 재현 가능한 개발 환경 구성을 목표로 한다.
+
+---
+
+## 2. 실행 환경
+- OS: macOS
+- Shell: zsh
+- Terminal: VSCode Terminal
+- Git: 2.53.0
+- Docker: (docker --version 결과 입력)
+
+---
+
+## 3. 수행 체크리스트
+
+- [x] 터미널 기본 조작
+- [x] 파일 권한 변경 실습
+- [x] Git 설정
+- [x] GitHub 저장소 생성 및 연동
+- [x] README 작성 및 Push
+- [ ] Docker 설치 및 점검
+- [ ] hello-world 실행
+- [ ] Dockerfile 빌드
+- [ ] 포트 매핑 검증
+- [ ] 볼륨 영속성 검증
+- [ ] 트러블슈팅 2건 이상
+
+---
+
+## 4. 터미널 기본 조작
+
+### 현재 위치 확인
+
+```bash
+$ pwd
+(결과 입력)
 
 '''
 ## 4. 터미널 기본 조작
