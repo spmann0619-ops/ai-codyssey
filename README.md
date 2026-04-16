@@ -114,7 +114,7 @@ $ ls -l
 결과: ls -l 명령어를 사용해 권한이 변경되었는지 확인하였다.
 '''
 
-#깃허브 연동 증거
+#깃허브 설정 증거
 '''
 spman06195118@c4r7s7 project % git config --list
 credential.helper=osxkeychain
@@ -126,6 +126,12 @@ core.ignorecase=true
 core.precomposeunicode=true
 user.name=JH
 user.email=your@email.com
+'''
+
+#깃허브 연동 증거
+'''spman06195118@c4r7s7 ai-codyssey % git remote -v
+origin  https://github.com/spmann0619-ops/ai-codyssey (fetch)
+origin  https://github.com/spmann0619-ops/ai-codyssey (push)
 '''
 
 ## 트러블슈팅 1. Git Push가 되지 않은 문제
