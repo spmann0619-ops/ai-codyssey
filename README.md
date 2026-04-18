@@ -349,6 +349,64 @@ docker stats  ->  CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %  
 
 
 
+##컨테이너 실행
+'''
+spman06195118@c3r7s7 ai-codyssey % docker run -it -d --name ubuntu-shell ubuntu bash
+
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+b40150c1c271: Pull complete 
+Digest: sha256:c4a8d5503dfb2a3eb8ab5f807da5bc69a85730fb49b5cfca2330194ebcc41c7b
+Status: Downloaded newer image for ubuntu:latest
+a4d21219812aff3d7e5359c63f3269d28a88b0a02d44de57e4002dfabb4d23d5
+
+
+spman06195118@c3r7s7 ai-codyssey % docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+a4d21219812a   ubuntu    "bash"    16 seconds ago   Up 15 seconds             ubuntu-shell
+
+
+
+spman06195118@c3r7s7 ai-codyssey % docker exec -it ubuntu-shell bash
+root@a4d21219812a:/# ls
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+root@a4d21219812a:/# pwd
+/
+root@a4d21219812a:/# echo "hello"
+hello
+
+
+root@a4d21219812a:/# exit
+exit
+
+
+spman06195118@c3r7s7 ai-codyssey % docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+a4d21219812a   ubuntu    "bash"    3 minutes ago   Up 3 minutes             ubuntu-shell
+
+
+
+pman06195118@c3r7s7 ai-codyssey % docker attach ubuntu-shell
+
+
+root@a4d21219812a:/# exit
+exit
+
+
+
+spman06195118@c3r7s7 ai-codyssey % docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+
+
+spman06195118@c3r7s7 ai-codyssey % docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+a4d21219812a   ubuntu        "bash"     4 minutes ago    Exited (0) 17 seconds ago             ubuntu-shell
+42c9c1db3909   hello-world   "/hello"   38 minutes ago   Exited (0) 38 minutes ago             friendly_cray
+
+
+
 ## 트러블슈팅 1. Git Push가 되지 않은 문제
 
 ### 문제
