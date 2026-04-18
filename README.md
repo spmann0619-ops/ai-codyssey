@@ -279,6 +279,8 @@ Server:
 spman06195118@c3r7s7 ai-codyssey % docker images
 REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
 
+도커 이미지 목록
+
 
 spman06195118@c3r7s7 ai-codyssey % docker run hello-world
 Unable to find image 'hello-world:latest' locally
@@ -308,15 +310,21 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 
+ hello-world 이미지를 다운로드하고, 컨테이너를 실행한 뒤, 성공 메시지를 출력하고 종료된 과정
+
 
 
 spman06195118@c3r7s7 ai-codyssey % docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
+컨테이너 목록
+
 
 spman06195118@c3r7s7 ai-codyssey % docker ps -a
 CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     PORTS     NAMES
 42c9c1db3909   hello-world   "/hello"   4 minutes ago   Exited (0) 4 minutes ago             friendly_cray
+
+실행 중이거나 종료된 모든 컨테이너 목록
 
 
 
@@ -343,9 +351,13 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 
+ 특정 컨테이너가 실행되면서 남긴 기록(로그)
+
 
 
 docker stats  ->  CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK I/O   PIDS 
+
+현재 실행 중인 모든 컨테이너의 CPU, 메모리, 네트워크 사용량을 실시간으로 보여줌
 
 
 
@@ -360,14 +372,24 @@ Digest: sha256:c4a8d5503dfb2a3eb8ab5f807da5bc69a85730fb49b5cfca2330194ebcc41c7b
 Status: Downloaded newer image for ubuntu:latest
 a4d21219812aff3d7e5359c63f3269d28a88b0a02d44de57e4002dfabb4d23d5
 
+컨테이너 생성
+
+
 
 spman06195118@c3r7s7 ai-codyssey % docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
 a4d21219812a   ubuntu    "bash"    16 seconds ago   Up 15 seconds             ubuntu-shell
 
+생성 확인
+
 
 
 spman06195118@c3r7s7 ai-codyssey % docker exec -it ubuntu-shell bash
+
+exec로 접속
+
+
+
 root@a4d21219812a:/# ls
 bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
 boot  etc  lib   media  opt  root  sbin  sys  usr
@@ -376,28 +398,37 @@ root@a4d21219812a:/# pwd
 root@a4d21219812a:/# echo "hello"
 hello
 
+명령어 실행 
 
 root@a4d21219812a:/# exit
 exit
+
+터미널로 돌아감
+
 
 
 spman06195118@c3r7s7 ai-codyssey % docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
 a4d21219812a   ubuntu    "bash"    3 minutes ago   Up 3 minutes             ubuntu-shell
 
+컨테이너 사라지지 않음
 
 
 pman06195118@c3r7s7 ai-codyssey % docker attach ubuntu-shell
+
+attach로 접속
 
 
 root@a4d21219812a:/# exit
 exit
 
+종료
 
 
 spman06195118@c3r7s7 ai-codyssey % docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
+컨테이너 종료되어 사라짐
 
 
 spman06195118@c3r7s7 ai-codyssey % docker ps -a
@@ -405,6 +436,8 @@ CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                 
 a4d21219812a   ubuntu        "bash"     4 minutes ago    Exited (0) 17 seconds ago             ubuntu-shell
 42c9c1db3909   hello-world   "/hello"   38 minutes ago   Exited (0) 38 minutes ago             friendly_cray
 
+종료된 것 확인
+'''
 
 
 ## 트러블슈팅 1. Git Push가 되지 않은 문제
