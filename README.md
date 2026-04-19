@@ -604,6 +604,7 @@ spman06195118@c3r7s7 project % curl localhost:8083
 접속 확인
 
 
+##바인드마운트
 
 spman06195118@c3r7s7 bind-mount-practice % echo "<h1>Hello from my Computer!</h1>" > index.html
 
@@ -616,7 +617,7 @@ spman06195118@c3r7s7 bind-mount-practice % docker run -d --name bind-test \
   nginx
 bda3b738337deaaf4bc8bd6c10897f0192f047782c6c75a48d1ffefb0117dbd6
 
-열결하고 실행
+연결하고 실행
 
 
 spman06195118@c3r7s7 bind-mount-practice % curl localhost:8081
