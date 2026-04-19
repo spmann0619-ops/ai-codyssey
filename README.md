@@ -466,20 +466,20 @@ spman06195118@c3r7s7 project % touch Dockerfile
 
 
 spman06195118@c3r7s7 project % cat > Dockerfile
-# 1. 베이스 이미지 선택
-# Nginx라는 가벼운 웹 서버 공식 이미지를 기반으로 시작합니다.
+
 FROM nginx:alpine
-
-# 2. 내가 만든 파일 복사
-# 현재 디렉토리의 index.html 파일을 이미지 안의 특정 경로로 복사합니다.
-# /usr/share/nginx/html 는 Nginx가 웹 페이지를 보여주기 위해 사용하는 기본 폴더입니다.
 COPY index.html /usr/share/nginx/html
-
-# 3. 포트 설정 (문서화)
-# 이 컨테이너는 80번 포트를 사용할 것이라고 알려줍니다.
 EXPOSE 80
 
 
+
+Nginx라는 가벼운 웹 서버 공식 이미지를 기반으로 시작
+
+현재 디렉토리의 index.html 파일을 이미지 안의 특정 경로로 복사
+
+/usr/share/nginx/html 는 Nginx가 웹 페이지를 보여주기 위해 사용하는 기본 폴더
+
+이 컨테이너는 80번 포트를 사용
 
 
 spman06195118@c3r7s7 project % docker build -t my-webserver:1.0 .
