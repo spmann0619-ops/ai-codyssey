@@ -439,14 +439,114 @@ a4d21219812a   ubuntu        "bash"     4 minutes ago    Exited (0) 17 seconds a
 종료된 것 확인
 '''
 
+##Dockerfile
+
+'''
+spman06195118@c3r7s7 project % touch index.html
+
+html 파일 생성
+
+
+spman06195118@c3r7s7 project % cat > index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Docker 테스트</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>축하합니다! 🎉</h1>
+<p>당신만의 Docker 이미지가 성공적으로 실행되었습니다.</p>
+</body>
+</html>
+
+
+spman06195118@c3r7s7 project % touch Dockerfile
+
+
+
+spman06195118@c3r7s7 project % cat > Dockerfile
+# 1. 베이스 이미지 선택
+# Nginx라는 가벼운 웹 서버 공식 이미지를 기반으로 시작합니다.
+FROM nginx:alpine
+
+# 2. 내가 만든 파일 복사
+# 현재 디렉토리의 index.html 파일을 이미지 안의 특정 경로로 복사합니다.
+# /usr/share/nginx/html 는 Nginx가 웹 페이지를 보여주기 위해 사용하는 기본 폴더입니다.
+COPY index.html /usr/share/nginx/html
+
+# 3. 포트 설정 (문서화)
+# 이 컨테이너는 80번 포트를 사용할 것이라고 알려줍니다.
+EXPOSE 80
+
+
+
+
+spman06195118@c3r7s7 project % docker build -t my-webserver:1.0 .
+[+] Building 7.7s (7/7) FINISHED                          docker:orbstack
+ => [internal] load build definition from Dockerfile                 0.2s
+ => => transferring dockerfile: 574B                                 0.0s
+ => [internal] load metadata for docker.io/library/nginx:alpine      2.7s
+ => [internal] load .dockerignore                                    0.2s
+ => => transferring context: 2B                                      0.0s
+ => [internal] load build context                                    0.2s
+ => => transferring context: 242B                                    0.0s
+ => [1/2] FROM docker.io/library/nginx:alpine@sha256:5616878291a2ee  3.9s
+ => => resolve docker.io/library/nginx:alpine@sha256:5616878291a2ee  0.2s
+ => => sha256:812d47f806db497c53f9b47e76bdab38bcf 12.32kB / 12.32kB  0.0s
+ => => sha256:6a0ac1617861a677b045b7ff88545213ec31c 3.86MB / 3.86MB  0.8s
+ => => sha256:5616878291a2eed594aee8db4dade5878cf 10.33kB / 10.33kB  0.0s
+ => => sha256:3bcf852aed06467cf075c6105892e4d5a6ebb 2.50kB / 2.50kB  0.0s
+ => => sha256:583599bb7d382e9e986a9ff65204981307bfa7167 627B / 627B  0.5s
+ => => sha256:82736a35d0e7f1309edc13d09115410b81542 1.87MB / 1.87MB  1.0s
+ => => sha256:aee4e54b3865ee4d98545b6b49f9e8ab3b9b6ed11 956B / 956B  1.1s
+ => => extracting sha256:6a0ac1617861a677b045b7ff88545213ec31c0ff08  0.1s
+ => => sha256:781ff50d2644f74714c0d5a4ffa3447bbfd4b293c 404B / 404B  1.4s
+ => => extracting sha256:82736a35d0e7f1309edc13d09115410b81542cf8b9  0.1s
+ => => sha256:453da7dbc73e7338c4e201ec3f3c4a5f7751a 1.21kB / 1.21kB  1.6s
+ => => sha256:4a8b0b2a5b1937755263ac7ac4ee26db2906c 1.40kB / 1.40kB  1.7s
+ => => extracting sha256:583599bb7d382e9e986a9ff65204981307bfa71670  0.0s
+ => => extracting sha256:aee4e54b3865ee4d98545b6b49f9e8ab3b9b6ed114  0.0s
+ => => extracting sha256:781ff50d2644f74714c0d5a4ffa3447bbfd4b293cf  0.0s
+ => => sha256:612c0c1df4c55a0bf145f84df03cb28de50 20.25MB / 20.25MB  2.2s
+ => => extracting sha256:453da7dbc73e7338c4e201ec3f3c4a5f7751adbf5a  0.0s
+ => => extracting sha256:4a8b0b2a5b1937755263ac7ac4ee26db2906c13a5d  0.0s
+ => => extracting sha256:612c0c1df4c55a0bf145f84df03cb28de505e6a52f  0.4s
+ => [2/2] COPY index.html /usr/share/nginx/html                      0.3s
+ => exporting to image                                               0.2s
+ => => exporting layers                                              0.1s
+ => => writing image sha256:ca21ee455dc7495bb2dc6067efa308f2afb189a  0.0s
+ => => naming to docker.io/library/my-webserver:1.0 
+
+
+
+ spman06195118@c3r7s7 project % docker images
+ REPOSITORY     TAG       IMAGE ID       CREATED              SIZE
+my-webserver   1.0       ca21ee455dc7   About a minute ago   62.2MB
+<none>         <none>    43a883dc0e26   19 hours ago         78.1MB
+ubuntu         latest    0b1ebe5dd426   9 days ago           78.1MB
+hello-world    latest    e2ac70e7319a   3 weeks ago          10.1kB
+
+
+pman06195118@c3r7s7 project % docker run -d --name my-nginx-server -p 8080:80 my-webserver:1.0
+
+내 컴퓨터의 8080번 포트를 컨테이너의 80번 포트에 연결하고 my-nginx-server를 이름으로 해서 my-webserver:1.0 이미지를 백그라운드에서 컨테이너를 실행 
+
+
+
+http://localhost:8080
+
+웹브라우저 확인
+
+
 
 ## 트러블슈팅 1. Git Push가 되지 않은 문제
 
 ### 문제
-README.md 파일을 수정한 뒤 git push를 실행했지만 GitHub 저장소에 변경 내용이 반영되지 않았다.
+README.md 파일을 수정한 뒤 git push를 실행했지만 GitHub 저장소에 변경 내용이 반영되지 않음
 
 ### 원인 가설
-파일 내용을 수정했지만 저장하지 않아 Git이 변경 사항을 인식하지 못했을 가능성이 있다고 판단하였다.
+파일 내용을 수정했지만 저장하지 않아 Git이 변경 사항을 인식하지 못했을 가능성이 있다고 판단
 
 ### 확인
 
@@ -458,3 +558,16 @@ nothing to commit, working tree clean
 $ git add .
 $ git commit -m "README 수정"
 $ git push
+
+
+##2. dockerfile 웹브라우저에서 한글로 출력이 안되는 문제
+
+###문제: 한글이 깨져서 알아볼 수 없는 형태로 출력
+
+###원인 가설: 한글로 번역이 되지 않고 인코딩이 진행
+
+###확인: ì¶•í•˜í•©ë‹ˆë‹¤! ðŸŽ‰
+
+ë‹¹ì‹ ë§Œì˜ Docker ì´ë¯¸ì§€ê°€ ì„±ê³µì ìœ¼ë¡œ ì‹¤í–‰ë˜ì—ˆìŠµë‹ˆë‹¤.  -> 이렇게 출력됨 
+
+###해결: index.html 파일에 <meta charset="UTF-8"> 추가
