@@ -544,7 +544,7 @@ http://localhost:8080
 
 웹브라우저 확인
 
-![port8080](images/Port_Mapping.jpg)
+![port8080](./images/images/Port_Mapping.jpg)
 
 
 ##볼륨 영속성 증거
