@@ -1,6 +1,6 @@
 
 # AI Codyssey - 개발 워크스테이션 구축
-![port8080](./images/Port_Mapping.jpg)
+
 ## 1. 프로젝트 개요
 터미널, Git, Docker를 활용하여 개발 워크스테이션 환경을 구축하는 과제이다.  
 터미널 기본 조작, 파일 권한 관리, GitHub 연동, Docker 컨테이너 실행 및 검증 과정을 수행하며 재현 가능한 개발 환경 구성을 목표로 한다.
@@ -49,10 +49,12 @@ $ pwd
 $ pwd
 /Users/spman06195118
 ```
+
 결과: pwd 명령어를 사용해 현재 위치를 확인하였다. 절대 경로를 보여준다.
 
 
-$ ls -la
+ls -la
+
 total 24
 drwxr-x---+ 23 spman06195118  spman06195118   736 Apr  5 20:57 .
 drwxr-xr-x   9 root           admin           288 Apr  5 19:32 ..
@@ -124,11 +126,7 @@ $ cat renamed.txt
 결과: cat 명령어를 사용해 파일을 실행하였다. 파일이 비어있어 아무 것도 실행되지 않았다.
 
 
-
-
----
-
-# 🔥 4. 권한 파트도 개선 (추가 추천)
+# 4. 권한
 
 ```md
 ## 5. 파일 권한 변경
@@ -136,7 +134,7 @@ $ cat renamed.txt
 ```bash
 $ ls -l
 -rw-r--r--  1 spman06195118  spman06195118  0 Apr  5 21:54 renamed.txt
-
+```
 결과: ls -l 명령어를 사용해 권한을 확인하였다.
 
 
