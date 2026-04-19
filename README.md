@@ -23,12 +23,12 @@
 - [x] Git 설정
 - [x] GitHub 저장소 생성 및 연동
 - [x] README 작성 및 Push
-- [ ] Docker 설치 및 점검
-- [ ] hello-world 실행
-- [ ] Dockerfile 빌드
-- [ ] 포트 매핑 검증
-- [ ] 볼륨 영속성 검증
-- [ ] 트러블슈팅 2건 이상
+- [x] Docker 설치 및 점검
+- [x] hello-world 실행
+- [x] Dockerfile 빌드
+- [x] 포트 매핑 검증
+- [x] 볼륨 영속성 검증
+- [x] 트러블슈팅 2건 이상
 
 ---
 
