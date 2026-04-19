@@ -543,6 +543,99 @@ CONTAINER ID   IMAGE              COMMAND                  CREATED              
 http://localhost:8080
 
 웹브라우저 확인
+
+
+
+spman06195118@c3r7s7 project % docker volume create my-data
+my-data
+
+볼륨 생성
+
+
+pman06195118@c3r7s7 project % docker run -d --name volume-test \
+  -p 8082:80 \
+  -v my-data:/usr/share/nginx/html \
+  nginx
+16e1d600be93034fa61409375b7a407524a19be1fe3315529a62222218ef258a
+
+볼륨 연결 실행
+
+
+
+spman06195118@c3r7s7 project % docker exec volume-test \
+  sh -c 'echo "<h1>Volume Test: Data is Safe</h1>" > /usr/share/nginx/html/index.html'
+
+  컨테이너 접속, index.html 파일 생성
+
+
+  spman06195118@c3r7s7 project %  curl localhost:8082
+<h1>Volume Test: Data is Safe</h1>
+
+정상 실행 확인
+
+
+spman06195118@c3r7s7 project % docker stop volume-test
+docker rm volume-test
+volume-test
+volume-test
+
+volume-test 컨테이너 삭제
+
+
+pman06195118@c3r7s7 project % docker volume ls
+DRIVER    VOLUME NAME
+local     my-data
+
+my-data 볼륨 남아있음
+
+
+spman06195118@c3r7s7 project % docker run -d --name volume-test-2 \
+  -p 8083:80 \
+  -v my-data:/usr/share/nginx/html \
+  nginx
+2c003ff85da25fafc616ec31ce7299c40f80e3bc31b19b5e61dabd9fe58b0046
+
+볼륨 연결 실행
+
+
+spman06195118@c3r7s7 project % curl localhost:8083
+<h1>Volume Test: Data is Safe</h1>
+
+접속 확인
+
+
+
+spman06195118@c3r7s7 bind-mount-practice % echo "<h1>Hello from my Computer!</h1>" > index.html
+
+index.html 파일 생성
+
+
+spman06195118@c3r7s7 bind-mount-practice % docker run -d --name bind-test \
+  -p 8081:80 \
+  -v "$(pwd)":/usr/share/nginx/html \
+  nginx
+bda3b738337deaaf4bc8bd6c10897f0192f047782c6c75a48d1ffefb0117dbd6
+
+열결하고 실행
+
+
+spman06195118@c3r7s7 bind-mount-practice % curl localhost:8081
+<h1>Hello from my Computer!</h1>
+
+연결 확인
+
+
+spman06195118@c3r7s7 bind-mount-practice % echo '<h1>Wow, it changed in real-time!</h1>' > index.html
+
+파일 수정
+
+
+spman06195118@c3r7s7 bind-mount-practice % curl localhost:8081
+<h1>Wow, it changed in real-time!</h1>
+
+실시간 변경 확인
+
+
 '''
 
 
