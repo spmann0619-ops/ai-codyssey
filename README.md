@@ -544,7 +544,10 @@ http://localhost:8080
 
 웹브라우저 확인
 
+![port8080](images/Port_Mappinig.jpg)
 
+
+##볼륨 영속성 증거
 
 spman06195118@c3r7s7 project % docker volume create my-data
 my-data
