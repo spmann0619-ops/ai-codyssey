@@ -533,11 +533,17 @@ pman06195118@c3r7s7 project % docker run -d --name my-nginx-server -p 8080:80 my
 내 컴퓨터의 8080번 포트를 컨테이너의 80번 포트에 연결하고 my-nginx-server를 이름으로 해서 my-webserver:1.0 이미지를 백그라운드에서 컨테이너를 실행 
 
 
+spman06195118@c3r7s7 project % docker ps
+CONTAINER ID   IMAGE              COMMAND                  CREATED              STATUS              PORTS                                     NAMES
+7e5f4f703dd4   my-webserver:1.0   "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   my-nginx-server
+
+실행 확인
+
 
 http://localhost:8080
 
 웹브라우저 확인
-
+'''
 
 
 ## 트러블슈팅 1. Git Push가 되지 않은 문제
